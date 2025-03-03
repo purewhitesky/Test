@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
+        
+    </head>
 
-</head>
-
-<body>
-    <form action=""></form>
-
-</body>
+    <body>
+        <h2>使用 jQuery 取得表單輸入值</h2>
+        
+        <form id="userForm">
+            <p>
+                <label for="username">姓名：</label>
+                <input type="text" id="username" name="username" placeholder="輸入你的姓名">
+                <span id="nameError" class="error"></span><br> <!-- 顯示錯誤訊息 -->
+            </p>
+            
+            <p>
+                <label for="email">Email：</label>
+                <input type="email" id="email" name="email" placeholder="輸入你的 Email">
+            </p>
+        
+            <button type="button" id="submitBtn">送出</button>
+        </form>
+        <div id="result"></div>
+    </body>
 
 </html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    function changeText() {
-        document.getElementById("title").innerHTML = "這是一段修改的文字"
-    }
-    function changeColor() {
-        document.getElementById("title").innerHTML = "這是一段修改的文字"
-    }
+    $(document).ready(function(){
+        $("#submitBtn").click(function () {
+
+            // 用來判斷表單是否有效
+            let isValid = true
+
+            // 取得輸入欄位的值
+            let name = $("input[name='username']").val().trim();;
+            let email = $("input[name='email']").val().trim();;
+
+            // 清空錯誤訊息
+            $("#nameError").text("");
+            $("#result").text("");
+            $("#username").css("border-color", "")
+
+            if(name ===''){
+                $("#nameError").text("姓名不能為空！")
+                $("#username").css("border-color","red")
+                isValid = false
+            }
+
+            // 顯示輸入的內容
+            if(isValid){
+                $("#result").html("你的姓名：" + name + "<br>你的 Email：" + email);
+            }
+        })
+    })
+    
 </script>
 <style>
-    #box {
-        background-color: red;
+    body {
+        font-family: Arial, sans-serif;
+        
+    }
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+        color: blue;
+    }
+    .error{
+        color: red;
     }
 </style>

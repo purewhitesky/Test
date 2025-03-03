@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="title">這是一段文字</h1>
+        <button onclick="changeText()">修改</button>
+
+        <div id="box">這是一段文字</div>
+        <button onclick="changeColor()">修改背景</button>
+    </body>
+</html>
+<script>
+    function changeText() {
+        document.getElementById("title").innerHTML="這是一段修改的文字"
+    }
+    function changeColor() {
+        document.getElementById("box").style.backgroundColor = "blue"
+    }
+</script>
+<style>
+    #box{
+        background-color: red;
+    }
+</style>

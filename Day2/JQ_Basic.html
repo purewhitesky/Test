@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        <p id="text">這是一行文字</p>
+        <button id="changeText">修改</button>
+    </body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    //啟動DOM
+    $(document).ready(function () {
+        //$(選擇器).動作()
+        $("#changeText").click(function () {
+            $("#text").text("這是修改後的一行文字")
+        })
+    })
+</script>
